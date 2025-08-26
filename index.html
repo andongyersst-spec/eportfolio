@@ -1,181 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ryza Mae D. Martinez | ePortfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;line-height:1.7;color:#333;background:#fdfdfd;scroll-behavior:smooth}
-h1,h2,h3{font-family:'Playfair Display',serif}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body, html{scroll-behavior:smooth; font-family:'Poppins',sans-serif; background:#fdfdfd;}
+h1,h2,h3{font-family:'Playfair Display',serif;}
 
-/* HERO */
-header{
-  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  color:#fff;text-align:center;position:relative;padding:0 1rem
+/* COLORS */
+:root{
+  --primary:#283593;
+  --secondary:#ff9800;
+  --accent:#f0f4f8;
+  --text:#333;
 }
-header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
-header h1, header p{position:relative;z-index:2}
-header h1{font-size:3rem;margin-bottom:1rem;text-shadow:2px 2px 6px rgba(0,0,0,0.6)}
-header p{font-size:1.3rem;max-width:700px;margin:auto;text-shadow:1px 1px 4px rgba(0,0,0,0.6)}
+
+/* HERO / HOME */
+header{
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+}
+header .bg-img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+header p{
+  position: relative;
+  z-index:2;
+  font-size:1.2rem;
+  max-width:700px;
+  text-shadow:1px 1px 4px rgba(0,0,0,0.6);
+  margin-top:0;
+  animation:fadeUp 1s ease-out;
+}
 
 /* NAVIGATION */
-nav{background:#283593;position:sticky;top:0;z-index:1000}
-nav .nav-container{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1rem;position:relative}
-nav .logo{color:#fff;font-weight:600;font-size:1.2rem}
-nav ul{list-style:none;display:flex;gap:1rem}
-nav ul li a{color:#fff;text-decoration:none;font-weight:600;transition:.3s}
-nav ul li a:hover{color:#ffeb3b}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:var(--primary);}
+.nav-container{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1rem;position:relative;}
+.logo{color:#fff;font-weight:600;font-size:1.2rem;}
+ul{list-style:none;display:flex;gap:1rem;}
+ul li a{color:#fff;text-decoration:none;font-weight:600;transition:0.3s;}
+ul li a:hover{color:var(--secondary);}
 
-/* HAMBURGER */
-.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
-.hamburger div{width:25px;height:3px;background:#fff;transition:.3s}
-
-/* NAV MOBILE */
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;transition:0.3s;}
+.hamburger div{width:25px;height:3px;background:#fff;transition:all 0.3s;}
+.hamburger.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active div:nth-child(2){opacity:0;}
+.hamburger.active div:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
 @media(max-width:768px){
-  nav ul{position:absolute;top:100%;right:0;background:#283593;flex-direction:column;width:200px;display:none;box-shadow:0 8px 15px rgba(0,0,0,0.2)}
-  nav ul.active{display:flex}
-  .hamburger{display:flex}
+  .hamburger{display:flex;}
+  ul{position:absolute;top:100%;right:0;background:var(--primary);flex-direction:column;width:200px;display:none;box-shadow:0 8px 15px rgba(0,0,0,0.2);}
+  ul.active{display:flex;}
+  ul li{padding:0.5rem 0;text-align:center;}
 }
 
-/* CONTAINER & SECTION */
-.container{max-width:1100px;margin:auto;padding:2rem 1rem}
-section{margin-bottom:3rem}
-section h2{text-align:center;font-size:2rem;color:#283593;margin-bottom:2rem;position:relative}
-section h2::after{content:"";display:block;width:50px;height:3px;background:#ff9800;margin:10px auto 0;border-radius:2px}
+/* SECTIONS */
+section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:2rem 1rem;
+  background:var(--accent);
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+section.visible{opacity:1; transform:translateY(0);}
+section h2{
+  font-size:2rem;color:var(--primary);margin-bottom:1.5rem;
+  position:relative;text-align:center;
+}
+section h2::after{
+  content:"";display:block;width:50px;height:3px;background:var(--secondary);margin:10px auto 0;border-radius:2px;
+}
 
-/* ABOUT */
-.about-text{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
-.about-text p{margin-bottom:1rem;font-size:1rem}
-.about-gallery{display:flex;gap:0.5rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
-.about-gallery img{width:32%;min-width:100px;border-radius:10px;transition:transform .3s, box-shadow .3s}
-.about-gallery img:hover{transform:scale(1.03);box-shadow:0 4px 15px rgba(0,0,0,0.15)}
-blockquote{font-style:italic;text-align:center;margin:1.5rem auto;color:#444;max-width:95%;position:relative;font-size:0.95rem}
-blockquote::before, blockquote::after{content:'\201C';font-size:2rem;color:#ff9800;position:absolute}
-blockquote::before{left:-10px;top:-10px}
-blockquote::after{content:'\201D';right:-10px;bottom:-10px}
-.skills{text-align:center;margin-top:1rem}
-.skills span{display:inline-block;background:#283593;color:#fff;padding:.5rem 1rem;border-radius:30px;margin:.3rem;transition:background .3s;font-size:0.85rem}
-.skills span:hover{background:#ff9800}
+/* ABOUT ME */
+.about-text{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);max-width:700px;text-align:center;}
+.about-text p{margin-bottom:1rem;}
+.about-gallery{display:flex;gap:0.5rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;}
+.about-gallery img{width:32%;min-width:100px;border-radius:10px;transition:transform 0.3s, box-shadow 0.3s;}
+.about-gallery img:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(0,0,0,0.2);}
 
-/* GRID CARDS */
-.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.cert, .train{background:#fff;padding:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:transform .3s, box-shadow .3s;overflow:hidden}
-.cert:hover, .train:hover{transform:translateY(-4px);box-shadow:0 6px 15px rgba(0,0,0,0.15)}
-.cert img{width:100%;display:block}
-.train h3{font-size:1rem;margin:0.7rem 0;padding:0.5rem}
+/* SKILLS HIGHLIGHTS IN ABOUT */
+.skills-about{
+  display:flex;
+  gap:0.5rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:1rem;
+}
+.skills-about span{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  padding:.5rem 1rem;
+  border-radius:30px;
+  margin:.3rem;
+  font-size:0.9rem;
+  transition:0.3s;
+}
+.skills-about span:hover{background:var(--secondary);}
+
+/* BLOCKQUOTE */
+blockquote{font-style:italic;text-align:center;margin:1.5rem auto;color:#444;max-width:90%;position:relative;font-size:0.95rem;}
+blockquote::before, blockquote::after{content:'\201C';font-size:2rem;color:var(--secondary);position:absolute;}
+blockquote::before{left:-10px;top:-10px;}
+blockquote::after{content:'\201D';right:-10px;bottom:-10px;}
+
+/* CERTIFICATIONS */
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));width:100%;max-width:900px;}
+.cert{overflow:hidden;border-radius:12px;transition:transform 0.3s;}
+.cert img{width:100%;display:block;}
+.cert:hover{transform:scale(1.03);}
+
+/* TRAININGS */
+.train{background:#fff;padding:1rem 1.2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);max-width:600px;margin:0.5rem 0;transition:transform 0.3s;}
+.train:hover{transform:translateY(-3px);}
+.train h3{font-size:1rem;margin-bottom:0.5rem;}
+.train ul{padding-left:1rem;}
 
 /* FOOTER */
-footer{background:#283593;color:#fff;text-align:center;padding:1rem;margin-top:2rem;font-size:0.85rem}
-footer p{margin:.2rem 0}
+footer{background:var(--primary);color:#fff;text-align:center;padding:1rem;font-size:0.85rem;}
+footer p{margin:0.2rem 0;font-size:0.85rem;}
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  header h1{font-size:2rem}
-  header p{font-size:1rem}
-  .about-gallery img{width:45%}
-  .skills span{font-size:0.8rem}
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
+
+/* MOBILE ADJUST */
 @media(max-width:480px){
-  header h1{font-size:1.6rem}
-  header p{font-size:0.9rem}
-  .about-gallery img{width:100%;max-width:250px}
-  .grid{grid-template-columns:1fr}
-  section h2{font-size:1.5rem}
+  header p{font-size:1rem;}
+  .skills-about span{font-size:0.75rem;}
+  .about-gallery img{width:48%;}
 }
 </style>
 </head>
 <body>
 
+<!-- HOME -->
 <header id="home">
-  <h1>Ryza Mae D. Martinez</h1>
-  <p>Future Tourism Professional | Passion for Travel & Culture</p>
+  <img src="image9.jpg" class="bg-img" alt="Home Background">
+  <p>“The journey of a thousand miles begins with one step”</p>
 </header>
 
+<!-- NAVIGATION -->
 <nav>
   <div class="nav-container">
     <div class="logo">Ryza Mae D. Martinez</div>
     <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div></div><div></div><div></div>
     </div>
     <ul id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#trainings">Trainings & Seminars</a></li>
+      <li><a href="#trainings">Trainings</a></li>
     </ul>
   </div>
 </nav>
 
-<main class="container">
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-text">
-      <p>Hello! I’m <strong>Ryza Mae D. Martinez</strong>, a 20-year-old student taking a Bachelor of Science in International Tourism Management Major in Travel and Tour Operations at Our Lady Of Fatima University – Antipolo Campus.</p>
-      <p>I am shy at first, but once comfortable, I’m friendly, jolly, and caring. My family is my biggest inspiration, and I strive to make them proud. Through my career in tourism, I aim to explore the world and repay my loved ones for their support.</p>
-      <p>I love discovering new cultures, exploring places, and meeting people. My hobbies include reading romance novels, watching shows, and listening to music while working. My goal is to gain valuable experiences that prepare me for a bright future in the tourism industry.</p>
-      <div class="about-gallery">
-        <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3d?auto=format&fit=crop&w=600&q=80" alt="Travel moment">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Tourism event">
-        <img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?auto=format&fit=crop&w=600&q=80" alt="Adventure trip">
-      </div>
-      <blockquote>“The journey of a thousand miles begins with one step.”</blockquote>
-      <div class="skills">
-        <span>Time Management</span>
-        <span>Positive Attitude</span>
-        <span>Calm in Emergencies</span>
-      </div>
+<main>
+<!-- ABOUT ME -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-text">
+    <p>Hi! I’m <strong>Ryza Mae D. Martinez</strong>, a 20-year-old student taking a Bachelor of Science in International Tourism Management Major in Travel and Tour Operations at Our Lady Of Fatima University – Antipolo Campus.</p>
+    <p>I am shy, but if I get comfortable, I show my true personality; friendly, jolly, soft-hearted, and loving. I’m beyond grateful for my family and life.</p>
+    <p>My hobbies include watching, reading romance books, and listening to music. I love exploring new places and learning about different cultures. My goal is to gain experiences that will prepare me for a successful career in tourism.</p>
+    
+    <div class="about-gallery">
+      <img src="image1.jpg" alt="Travel 1">
+      <img src="image2.jpg" alt="Travel 2">
+      <img src="image3.jpg" alt="Travel 3">
     </div>
-  </section>
+    
+    <h3 style="margin-top:1.5rem;color:var(--primary);">Skills & Highlights</h3>
+    <div class="skills-about">
+      <span>Time Management</span>
+      <span>Positive Attitude</span>
+      <span>Ability to remain calm in emergencies</span>
+    </div>
+    
+    <blockquote>“The journey of a thousand miles begins with one step.”</blockquote>
+  </div>
+</section>
 
-  <section id="certifications">
-    <h2>Certifications & International Courses</h2>
-    <div class="grid">
-      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+1" alt="Certificate 1"></div>
-      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+2" alt="Certificate 2"></div>
-      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+3" alt="Certificate 3"></div>
-      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+4" alt="Certificate 4"></div>
-      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+5" alt="Certificate 5"></div>
-    </div>
-  </section>
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <h2>Certifications & International Courses</h2>
+  <div class="grid">
+    <div class="cert"><img src="image4.jpg" alt="Certificate 1"></div>
+    <div class="cert"><img src="image5.jpg" alt="Certificate 2"></div>
+    <div class="cert"><img src="image6.jpg" alt="Certificate 3"></div>
+    <div class="cert"><img src="image7.jpg" alt="Certificate 4"></div>
+    <div class="cert"><img src="image8.jpg" alt="Certificate 5"></div>
+  </div>
+</section>
 
-  <section id="trainings">
-    <h2>Trainings & Seminars</h2>
-    <div class="grid">
-      <div class="train">
-        <h3>Flight Attendant Training – PTC Aviation Training Center</h3>
-        <ul>
-          <li>Performed in-flight safety demonstration in a cabin mock-up</li>
-          <li>Experienced emergency evacuation slide</li>
-          <li>Overview of cabin crew responsibilities</li>
-        </ul>
-      </div>
-      <div class="train">
-        <h3>Work Immersion – Bureau of Fire Protection</h3>
-        <ul>
-          <li>Hands-on first aid bandaging</li>
-          <li>Practiced cardiopulmonary resuscitation (CPR)</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<!-- TRAININGS -->
+<section id="trainings">
+  <h2>Trainings & Seminars</h2>
+  <div class="train">
+    <h3>Flight Attendant Training – PTC Aviation Training Center</h3>
+    <ul>
+      <li>Performed in-flight safety demonstration in a cabin mock-up</li>
+      <li>Experienced emergency evacuation slide</li>
+      <li>Overview of cabin crew responsibilities</li>
+    </ul>
+  </div>
+  <div class="train">
+    <h3>Work Immersion – Bureau of Fire Protection</h3>
+    <ul>
+      <li>Practiced first aid bandaging and CPR</li>
+    </ul>
+  </div>
+</section>
 </main>
 
+<!-- FOOTER -->
 <footer>
-  <p>Contact: martinezryzamae13@gmail.com | Instagram: @itszmae | Facebook: Ryza Mae Martinez</p>
+  <p>Social Media: Email: martinezryzamae13@gmail.com | Instagram: @itszmae | Facebook: Ryza Mae Martinez</p>
   <p>&copy; 2025 Ryza Mae D. Martinez | All Rights Reserved</p>
 </footer>
 
 <script>
-function toggleMenu(){
-  const nav = document.getElementById('nav-links');
-  nav.classList.toggle('active');
-}
-</script>
+// Hamburger toggle
+const navLinks = document.getElementById('nav-links');
+const hamburger = document.querySelector('.hamburger');
+hamburger.addEventListener('click', ()=>hamburger.classList.toggle('active'));
+function toggleMenu(){navLinks.classList.toggle('active');}
 
+// Fade-in sections when scrolling
+const sections = document.querySelectorAll('section, header');
+window.addEventListener('scroll', ()=>{
+  sections.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){sec.classList.add('visible');}
+  });
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('nav ul li a').forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    target.scrollIntoView({behavior:'smooth'});
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  });
+});
+</script>
 </body>
 </html>
