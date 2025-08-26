@@ -64,7 +64,7 @@ nav{
 }
 .nav-container{
   max-width:1100px; margin:auto;
-  display:flex; justify-content:space-between; align-items:center; padding:0.8rem 1rem; position:relative;
+  display:flex; justify-content:space-between; align-items:center; padding:0.4rem 1rem; position:relative;
 }
 .logo{color:#fff; font-weight:600; font-size:1.2rem;}
 ul{
@@ -233,18 +233,24 @@ footer p{margin:0.2rem 0; font-size:0.85rem;}
 <section id="trainings">
   <h2>Trainings & Seminars</h2>
   <div class="train">
-    <h3>Flight Attendant Training – PTC Aviation Training Center</h3>
-    <ul>
-      <li>Performed in-flight safety demonstration in a cabin mock-up</li>
-      <li>Experienced emergency evacuation slide</li>
-      <li>Overview of cabin crew responsibilities</li>
-    </ul>
+    <h3>Flight Attendant Training at PTC Aviation Training Center<br>
+        - Performed in-flight safety demonstration in a cabin mock-up<br>
+        - Got to experience on sliding in an emergency slide<br>
+        - Got an overview on the role of a cabin crew<br>
+    </h3>
+    
   </div>
   <div class="train">
-    <h3>Work Immersion – Bureau of Fire Protection</h3>
-    <ul>
-      <li>Practiced first aid bandaging and CPR</li>
-    </ul>
+    <h3>Work Immersion at Bureau of Fire Protection<br>
+        - Practiced the first aid bandaging and cardiopulmonary resuscitation (CPR)<br>
+        - Assisted in mock rescue operations.<br>
+        - Observed and participated in emergency response coordination.<br>
+        - Gained experience in teamwork and effective communication during emergency situations.<br>
+        - Observed fire safety drills and evacuation procedures.<br>
+        - Learned how to assess the condition of injured persons during emergency situations.<br>
+        - Learned to operate firefighting equipment and maintain emergency tools.<br>
+        - Observed fire safety inspections, regulations, and reporting protocols.<br>
+    </h3>
   </div>
 </section>
 </main>
@@ -268,17 +274,18 @@ document.querySelectorAll('nav ul li a').forEach(link=>{
     e.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
     
-    // Hide all sections except Home
+    // Hide all sections
     document.querySelectorAll('section').forEach(sec=>sec.classList.remove('visible'));
-    
-    // Show Home separately
+    document.querySelectorAll('header').forEach(sec=>sec.style.display='none');
+
+    // Show target section (except home)
     if(target.id==='home'){
-      target.scrollIntoView({behavior:'smooth'});
+      target.style.display='flex';
     } else {
       target.classList.add('visible');
-      target.scrollIntoView({behavior:'smooth'});
     }
-    
+
+    target.scrollIntoView({behavior:'smooth'});
     navLinks.classList.remove('active');
     hamburger.classList.remove('active');
   });
