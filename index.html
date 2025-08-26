@@ -1,165 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ryza Mae D. Martinez | ePortfolio</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Poppins',sans-serif;line-height:1.7;color:#333;background:#fdfdfd;scroll-behavior:smooth}
-    h1,h2,h3{font-family:'Playfair Display',serif}
-    
-    /* HERO */
-    header{
-      background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-      color:#fff;text-align:center;position:relative;padding:0 1rem
-    }
-    header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
-    header h1, header p{position:relative;z-index:2}
-    header h1{font-size:3rem;margin-bottom:1rem;text-shadow:2px 2px 6px rgba(0,0,0,0.6)}
-    header p{font-size:1.3rem;max-width:700px;margin:auto;text-shadow:1px 1px 4px rgba(0,0,0,0.6)}
-    
-    /* NAV */
-    nav{background:#283593;position:sticky;top:0;z-index:1000}
-    nav ul{list-style:none;display:flex;justify-content:center;gap:2rem;padding:1rem;flex-wrap:wrap}
-    nav a{color:#fff;text-decoration:none;font-weight:600;transition:.3s}
-    nav a:hover{color:#ffeb3b}
-    
-    /* CONTAINER & SECTION */
-    .container{max-width:1100px;margin:auto;padding:3rem 1.5rem}
-    section{margin-bottom:4rem}
-    section h2{text-align:center;font-size:2rem;color:#283593;margin-bottom:2rem;position:relative}
-    section h2::after{content:"";display:block;width:60px;height:3px;background:#ff9800;margin:10px auto 0;border-radius:2px}
-    
-    /* ABOUT */
-    .about-text{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
-    .about-text p{margin-bottom:1.2rem}
-    .about-gallery{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-    .about-gallery img{width:30%;min-width:200px;border-radius:10px;transition:transform .3s, box-shadow .3s}
-    .about-gallery img:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(0,0,0,0.2)}
-    blockquote{font-style:italic;text-align:center;margin:2rem auto;color:#444;max-width:800px;position:relative}
-    blockquote::before, blockquote::after{content:'\201C';font-size:3rem;color:#ff9800;position:absolute}
-    blockquote::before{left:-10px;top:-20px}
-    blockquote::after{content:'\201D';right:-10px;bottom:-20px}
-    .skills{text-align:center;margin-top:1rem}
-    .skills span{display:inline-block;background:#283593;color:#fff;padding:.6rem 1.2rem;border-radius:30px;margin:.5rem;transition:background .3s}
-    .skills span:hover{background:#ff9800}
-    
-    /* GRID CARDS */
-    .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-    .cert, .train{background:#fff;padding:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:transform .3s, box-shadow .3s;overflow:hidden}
-    .cert:hover, .train:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,0.15)}
-    .cert img{width:100%;display:block}
-    
-    /* FOOTER */
-    footer{background:#283593;color:#fff;text-align:center;padding:1.5rem;margin-top:3rem}
-    footer p{margin:.3rem 0;font-size:.95rem}
-    
-    /* RESPONSIVE */
-    @media(max-width:768px){
-      header h1{font-size:2.2rem}
-      header p{font-size:1rem}
-      .about-gallery img{width:45%}
-    }
-    @media(max-width:480px){
-      nav ul{gap:1rem}
-      header h1{font-size:1.8rem}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ryza Mae D. Martinez | ePortfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;line-height:1.7;color:#333;background:#fdfdfd;scroll-behavior:smooth}
+h1,h2,h3{font-family:'Playfair Display',serif}
+
+/* HERO */
+header{
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  color:#fff;text-align:center;position:relative;padding:0 1rem
+}
+header::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
+header h1, header p{position:relative;z-index:2}
+header h1{font-size:3rem;margin-bottom:1rem;text-shadow:2px 2px 6px rgba(0,0,0,0.6)}
+header p{font-size:1.3rem;max-width:700px;margin:auto;text-shadow:1px 1px 4px rgba(0,0,0,0.6)}
+
+/* NAVIGATION */
+nav{background:#283593;position:sticky;top:0;z-index:1000}
+nav .nav-container{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1rem;position:relative}
+nav .logo{color:#fff;font-weight:600;font-size:1.2rem}
+nav ul{list-style:none;display:flex;gap:1rem}
+nav ul li a{color:#fff;text-decoration:none;font-weight:600;transition:.3s}
+nav ul li a:hover{color:#ffeb3b}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px}
+.hamburger div{width:25px;height:3px;background:#fff;transition:.3s}
+
+/* NAV MOBILE */
+@media(max-width:768px){
+  nav ul{position:absolute;top:100%;right:0;background:#283593;flex-direction:column;width:200px;display:none;box-shadow:0 8px 15px rgba(0,0,0,0.2)}
+  nav ul.active{display:flex}
+  .hamburger{display:flex}
+}
+
+/* CONTAINER & SECTION */
+.container{max-width:1100px;margin:auto;padding:2rem 1rem}
+section{margin-bottom:3rem}
+section h2{text-align:center;font-size:2rem;color:#283593;margin-bottom:2rem;position:relative}
+section h2::after{content:"";display:block;width:50px;height:3px;background:#ff9800;margin:10px auto 0;border-radius:2px}
+
+/* ABOUT */
+.about-text{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.about-text p{margin-bottom:1rem;font-size:1rem}
+.about-gallery{display:flex;gap:0.5rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.about-gallery img{width:32%;min-width:100px;border-radius:10px;transition:transform .3s, box-shadow .3s}
+.about-gallery img:hover{transform:scale(1.03);box-shadow:0 4px 15px rgba(0,0,0,0.15)}
+blockquote{font-style:italic;text-align:center;margin:1.5rem auto;color:#444;max-width:95%;position:relative;font-size:0.95rem}
+blockquote::before, blockquote::after{content:'\201C';font-size:2rem;color:#ff9800;position:absolute}
+blockquote::before{left:-10px;top:-10px}
+blockquote::after{content:'\201D';right:-10px;bottom:-10px}
+.skills{text-align:center;margin-top:1rem}
+.skills span{display:inline-block;background:#283593;color:#fff;padding:.5rem 1rem;border-radius:30px;margin:.3rem;transition:background .3s;font-size:0.85rem}
+.skills span:hover{background:#ff9800}
+
+/* GRID CARDS */
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cert, .train{background:#fff;padding:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:transform .3s, box-shadow .3s;overflow:hidden}
+.cert:hover, .train:hover{transform:translateY(-4px);box-shadow:0 6px 15px rgba(0,0,0,0.15)}
+.cert img{width:100%;display:block}
+.train h3{font-size:1rem;margin:0.7rem 0;padding:0.5rem}
+
+/* FOOTER */
+footer{background:#283593;color:#fff;text-align:center;padding:1rem;margin-top:2rem;font-size:0.85rem}
+footer p{margin:.2rem 0}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header h1{font-size:2rem}
+  header p{font-size:1rem}
+  .about-gallery img{width:45%}
+  .skills span{font-size:0.8rem}
+}
+@media(max-width:480px){
+  header h1{font-size:1.6rem}
+  header p{font-size:0.9rem}
+  .about-gallery img{width:100%;max-width:250px}
+  .grid{grid-template-columns:1fr}
+  section h2{font-size:1.5rem}
+}
+</style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header id="home">
-    <h1>Ryza Mae D. Martinez</h1>
-    <p>Future Tourism Professional | Passion for Travel & Culture</p>
-  </header>
+<header id="home">
+  <h1>Ryza Mae D. Martinez</h1>
+  <p>Future Tourism Professional | Passion for Travel & Culture</p>
+</header>
 
-  <!-- NAV -->
-  <nav>
-    <ul>
+<nav>
+  <div class="nav-container">
+    <div class="logo">Ryza Mae D. Martinez</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#trainings">Trainings & Seminars</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <main class="container">
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about-text">
-        <p>Hello! I’m <strong>Ryza Mae D. Martinez</strong>, a 20-year-old student taking a Bachelor of Science in International Tourism Management Major in Travel and Tour Operations at Our Lady Of Fatima University – Antipolo Campus.</p>
-        <p>I am shy at first, but once comfortable, I’m friendly, jolly, and caring. My family is my biggest inspiration, and I strive to make them proud. Through my career in tourism, I aim to explore the world and repay my loved ones for their support.</p>
-        <p>I love discovering new cultures, exploring places, and meeting people. My hobbies include reading romance novels, watching shows, and listening to music while working. My goal is to gain valuable experiences that prepare me for a bright future in the tourism industry.</p>
-        <div class="about-gallery">
-          <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3d?auto=format&fit=crop&w=600&q=80" alt="Travel moment">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Tourism event">
-          <img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?auto=format&fit=crop&w=600&q=80" alt="Adventure trip">
-        </div>
-        <blockquote>“The journey of a thousand miles begins with one step.”</blockquote>
-        <div class="skills">
-          <span>Time Management</span>
-          <span>Positive Attitude</span>
-          <span>Calm in Emergencies</span>
-        </div>
+<main class="container">
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-text">
+      <p>Hello! I’m <strong>Ryza Mae D. Martinez</strong>, a 20-year-old student taking a Bachelor of Science in International Tourism Management Major in Travel and Tour Operations at Our Lady Of Fatima University – Antipolo Campus.</p>
+      <p>I am shy at first, but once comfortable, I’m friendly, jolly, and caring. My family is my biggest inspiration, and I strive to make them proud. Through my career in tourism, I aim to explore the world and repay my loved ones for their support.</p>
+      <p>I love discovering new cultures, exploring places, and meeting people. My hobbies include reading romance novels, watching shows, and listening to music while working. My goal is to gain valuable experiences that prepare me for a bright future in the tourism industry.</p>
+      <div class="about-gallery">
+        <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3d?auto=format&fit=crop&w=600&q=80" alt="Travel moment">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Tourism event">
+        <img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?auto=format&fit=crop&w=600&q=80" alt="Adventure trip">
       </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications">
-      <h2>Certifications & International Courses</h2>
-      <div class="grid">
-        <div class="cert">
-          <img src="https://via.placeholder.com/600x400?text=Certificate+1" alt="Certificate 1">
-        </div>
-        <div class="cert">
-          <img src="https://via.placeholder.com/600x400?text=Certificate+2" alt="Certificate 2">
-        </div>
-        <div class="cert">
-          <img src="https://via.placeholder.com/600x400?text=Certificate+3" alt="Certificate 3">
-        </div>
-        <div class="cert">
-          <img src="https://via.placeholder.com/600x400?text=Certificate+4" alt="Certificate 4">
-        </div>
-        <div class="cert">
-          <img src="https://via.placeholder.com/600x400?text=Certificate+5" alt="Certificate 5">
-        </div>
+      <blockquote>“The journey of a thousand miles begins with one step.”</blockquote>
+      <div class="skills">
+        <span>Time Management</span>
+        <span>Positive Attitude</span>
+        <span>Calm in Emergencies</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TRAININGS -->
-    <section id="trainings">
-      <h2>Trainings & Seminars</h2>
-      <div class="grid">
-        <div class="train">
-          <h3>Flight Attendant Training – PTC Aviation Training Center</h3>
-          <ul>
-            <li>Performed in-flight safety demonstration in a cabin mock-up</li>
-            <li>Experienced emergency evacuation slide</li>
-            <li>Overview of cabin crew responsibilities</li>
-          </ul>
-        </div>
-        <div class="train">
-          <h3>Work Immersion – Bureau of Fire Protection</h3>
-          <ul>
-            <li>Hands-on first aid bandaging</li>
-            <li>Practiced cardiopulmonary resuscitation (CPR)</li>
-          </ul>
-        </div>
+  <section id="certifications">
+    <h2>Certifications & International Courses</h2>
+    <div class="grid">
+      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+1" alt="Certificate 1"></div>
+      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+2" alt="Certificate 2"></div>
+      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+3" alt="Certificate 3"></div>
+      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+4" alt="Certificate 4"></div>
+      <div class="cert"><img src="https://via.placeholder.com/600x400?text=Certificate+5" alt="Certificate 5"></div>
+    </div>
+  </section>
+
+  <section id="trainings">
+    <h2>Trainings & Seminars</h2>
+    <div class="grid">
+      <div class="train">
+        <h3>Flight Attendant Training – PTC Aviation Training Center</h3>
+        <ul>
+          <li>Performed in-flight safety demonstration in a cabin mock-up</li>
+          <li>Experienced emergency evacuation slide</li>
+          <li>Overview of cabin crew responsibilities</li>
+        </ul>
       </div>
-    </section>
-  </main>
+      <div class="train">
+        <h3>Work Immersion – Bureau of Fire Protection</h3>
+        <ul>
+          <li>Hands-on first aid bandaging</li>
+          <li>Practiced cardiopulmonary resuscitation (CPR)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Contact: martinezryzamae13@gmail.com | Instagram: @itszmae | Facebook: Ryza Mae Martinez</p>
-    <p>&copy; 2025 Ryza Mae D. Martinez | All Rights Reserved</p>
-  </footer>
+<footer>
+  <p>Contact: martinezryzamae13@gmail.com | Instagram: @itszmae | Facebook: Ryza Mae Martinez</p>
+  <p>&copy; 2025 Ryza Mae D. Martinez | All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  const nav = document.getElementById('nav-links');
+  nav.classList.toggle('active');
+}
+</script>
 
 </body>
 </html>
