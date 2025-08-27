@@ -224,6 +224,8 @@ footer { text-align: center; padding: 20px; background-color: #800000; color: wh
     line-height: 1.7;
     font-size: 1rem;
     color: #333;
+    text-align: justify;
+    text-indent: 40px;
 }
 
 /* Photos layout */
@@ -280,6 +282,21 @@ footer { text-align: center; padding: 20px; background-color: #800000; color: wh
     font-size: 0.95rem;
     color: #555;
 }
+.indented {
+    text-indent: 40px;  /* indent sa simula ng paragraph */
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.no-indent {
+    text-indent: 0;     /* walang indent */
+    margin-top: 20px;   /* space sa taas para hindi dikit sa itaas na paragraph */
+    line-height: 1.6;
+}
+
+
+
 
 </style>
 </head>
@@ -342,7 +359,6 @@ footer { text-align: center; padding: 20px; background-color: #800000; color: wh
             <div class="mySlides2"><img src="mae5.jpg" style="width:100%; border-radius:10px;"></div>
             <div class="mySlides2"><img src="mae6.jpg" style="width:100%; border-radius:10px;"></div>
             <div class="mySlides2"><img src="mae7.jpg" style="width:100%; border-radius:10px;"></div>
-            <div class="mySlides2"><img src="mae8.jpg" style="width:100%; border-radius:10px;"></div>
             <div class="mySlides2"><img src="mae9.jpg" style="width:100%; border-radius:10px;"></div>
             <div class="mySlides2"><img src="mae10.jpg" style="width:100%; border-radius:10px;"></div>
             <div class="mySlides2"><img src="mae11.jpg" style="width:100%; border-radius:10px;"></div>
@@ -365,7 +381,6 @@ footer { text-align: center; padding: 20px; background-color: #800000; color: wh
             <span class="dot2" onclick="currentSlide2(5)"></span>
             <span class="dot2" onclick="currentSlide2(6)"></span>
             <span class="dot2" onclick="currentSlide2(7)"></span>
-            <span class="dot2" onclick="currentSlide2(8)"></span>
             <span class="dot2" onclick="currentSlide2(9)"></span>
             <span class="dot2" onclick="currentSlide2(10)"></span>
             <span class="dot2" onclick="currentSlide2(11)"></span>
@@ -383,12 +398,17 @@ footer { text-align: center; padding: 20px; background-color: #800000; color: wh
         <p><strong>Address:</strong> PAIR-PAGSS Center, Ninoy Aquino International Airport, Pasay City, Metro Manila, NCR, 1300</p>
         <p><strong>Company:</strong> PAIR-PAGSS Center</p>
         <p><strong>Date:</strong> July 17 - August 16, 2025</p>
-        <p>
-            During my intern at PAGSS/SALCI, at cargo department, I was deployed at Eva Air.  
-            I was assigned to help in the cargo acceptance.  
-            I helped in weighing the cargo and I was able to compute the length × width × height to get the actual volume.  
-            They also ordered me to give papers to the x-ray area and recycle papers.
-        </p>
+        <p class="indented">
+    During my intern at PAGSS/SALCI, at cargo department, I was deployed at Eva Air.  
+    I was assigned to help in the cargo acceptance.  
+    I helped in weighing the cargo and I was able to compute the length × width × height to get the actual volume.  
+    They also ordered me to give papers to the x-ray area and recycle papers.
+</p>
+
+<p class="no-indent"><b>Cargo Department</b></p>
+
+</p>
+
 
         <!-- Slideshow container -->
         <div class="slideshow-container">
