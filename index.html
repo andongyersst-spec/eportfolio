@@ -8,7 +8,7 @@
 <style>
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
-body, html{scroll-behavior:smooth;font-family:'Poppins',sans-serif;background:#fdfdfd;}
+body, html{scroll-behavior:smooth;font-family:'Poppins',sans-serif;background:#fdfdfd;display:flex;flex-direction:column;min-height:100vh;}
 h1,h2,h3{font-family:'Playfair Display',serif;}
 
 /* COLORS */
@@ -93,14 +93,20 @@ ul li a:hover{color:var(--secondary);}
 }
 
 /* SECTIONS */
+main{flex:1;} /* keeps footer at bottom */
 section{
   min-height:100vh;
   display:flex; flex-direction:column; justify-content:center; align-items:center;
   padding:3rem 1rem;
-  background:url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
   position:relative;
 }
-section::after{
+/* Travel/Airplane themed background for sections except home */
+section#about, section#certifications, section#trainings{
+  background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+}
+section#about::after,
+section#certifications::after,
+section#trainings::after{
   content:""; position:absolute; inset:0; background:rgba(255,255,255,0.85);
 }
 section > *{position:relative; z-index:2;}
@@ -115,14 +121,14 @@ section h2::after{
 /* ABOUT ME */
 .about-text{
   background:#fff; padding:2rem; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.08);
-  max-width:700px; text-align:center;
+  max-width:800px; text-align:center;
 }
 .about-text p{margin-bottom:1rem;}
 .about-gallery{
-  display:flex; gap:0.5rem; justify-content:center; margin-top:1.5rem; flex-wrap:wrap;
+  display:flex; gap:0.8rem; justify-content:center; margin-top:1.5rem; flex-wrap:wrap;
 }
 .about-gallery img{
-  width:32%; min-width:100px; border-radius:10px;
+  width:48%; min-width:200px; border-radius:12px;
   transition:transform 0.3s, box-shadow 0.3s;
 }
 .about-gallery img:hover{transform:scale(1.05); box-shadow:0 4px 15px rgba(0,0,0,0.2);}
@@ -145,14 +151,34 @@ section h2::after{
 .cert:hover{transform:scale(1.03);}
 
 /* TRAININGS */
-.train{background:#fff; padding:1rem 1.2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); max-width:600px; margin:0.5rem 0; transition:transform 0.3s;}
+.train{background:#fff; padding:1rem 1.2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); max-width:650px; margin:0.5rem 0; transition:transform 0.3s;}
 .train:hover{transform:translateY(-3px);}
 .train h3{font-size:1rem;margin-bottom:0.5rem;}
 .train ul{padding-left:1rem;}
 
 /* FOOTER */
-footer{background:var(--primary); color:#fff; text-align:center; padding:1rem; font-size:0.85rem;}
-footer p{margin:0.2rem 0;}
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:2rem 1rem;
+  margin-top:auto;
+}
+footer h2{
+  color:#ffd700;
+  font-family:'Playfair Display', serif;
+  margin-bottom:0.8rem;
+}
+footer .footer-container{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:0.6rem;
+}
+footer p{margin:0.3rem 0;}
+footer strong{color:#ff9800;}
+footer small{display:block; margin-top:1rem; font-size:0.8rem; color:#ddd;}
 
 /* ANIMATION */
 @keyframes fadeUp{
@@ -168,6 +194,7 @@ footer p{margin:0.2rem 0;}
 }
 @media(max-width:480px){
   header p#home-quote{font-size:1.2rem; line-height:1.5;}
+  .about-gallery img{width:100%;}
 }
 </style>
 </head>
@@ -235,42 +262,46 @@ footer p{margin:0.2rem 0;}
 <section id="trainings">
   <h2>Trainings & Seminars</h2>
   <div class="train">
-    <h3>Flight Attendant Training at PTC Aviation Training Center</h3>
-    <ul>
-      <li>Performed in-flight safety demonstration in a cabin mock-up</li>
-      <li>Experienced sliding in an emergency slide</li>
-      <li>Got an overview on the role of a cabin crew</li>
-    </ul>
+    <h3>Flight Attendant Training at PTC Aviation Training Center<br>
+      - Performed in-flight safety demonstration in a cabin mock-up<br>
+      - Experienced sliding in an emergency slide<br>
+      - Got an overview on the role of a cabin crew<br>
+    
+    </h3>
+    
   </div>
   <div class="train">
-    <h3>Work Immersion at Bureau of Fire Protection</h3>
-    <ul>
-      <li>Practiced first aid bandaging and CPR</li>
-      <li>Assisted in mock rescue operations</li>
-      <li>Observed and participated in emergency response coordination</li>
-      <li>Learned teamwork and effective communication during emergencies</li>
-      <li>Observed fire safety drills and evacuation procedures</li>
-      <li>Learned to assess the condition of injured persons</li>
-      <li>Operated firefighting equipment and maintained emergency tools</li>
-      <li>Observed fire safety inspections and regulations</li>
-    </ul>
+    <h3>Work Immersion at Bureau of Fire Protection<br>
+    
+      - Practiced first aid bandaging and CPR<br>
+      - Assisted in mock rescue operations<br>
+      - Observed and participated in emergency response coordination<br>
+      - Learned teamwork and effective communication during emergencies<br>
+      - Observed fire safety drills and evacuation procedures<br>
+      - Learned to assess the condition of injured persons<br>
+      - Operated firefighting equipment and maintained emergency tools<br>
+      - Observed fire safety inspections and regulations<br>
+    </h3>
   </div>
   <div class="train">
-    <h3>On-The-Job Training at Philippines Airport Ground Support Inc. and Sky Aviation Learning Center, Inc.</h3>
-    <ul>
-      <li>Did Cargo training</li>
-      <li>Helped in receiving cargo</li>
-    </ul>
+    <h3>On-The-Job Training at Philippines Airport Ground Support Inc. and Sky Aviation Learning Center, Inc.<br>
+    
+      - Did Cargo training<br>
+      - Helped in receiving cargo<br>
+    </h3>
   </div>
 </section>
 </main>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Email:</strong> martinezryzamae13@gmail.com</p>
-  <p><strong>Instagram:</strong> @itszmae</p>
-  <p><strong>Facebook:</strong> Ryza Mae Martinez</p>
-  <p>&copy; 2025 Ryza Mae D. Martinez | All Rights Reserved</p>
+  <h2>Social Media Accounts</h2>
+  <div class="footer-container">
+    <p><strong>Email:</strong> martinezryzamae13@gmail.com</p>
+    <p><strong>Instagram:</strong> @itszmae</p>
+    <p><strong>Facebook:</strong> Ryza Mae Martinez</p>
+    <small>&copy; 2025 Ryza Mae D. Martinez | All Rights Reserved</small>
+  </div>
 </footer>
 
 <script>
