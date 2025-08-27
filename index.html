@@ -1,314 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ryza Mae D. Martinez | ePortfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My ePortfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
-body, html{scroll-behavior:smooth;font-family:'Poppins',sans-serif;background:#fdfdfd;display:flex;flex-direction:column;min-height:100vh;}
-h1,h2,h3{font-family:'Playfair Display',serif;}
-
-/* COLORS */
-:root{
-  --primary:#283593;
-  --secondary:#ff9800;
-  --accent:#f0f4f8;
-  --text:#333;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* HERO / HOME */
-header{
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:1;
-}
-header .bg-img{
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  z-index:0;
-}
-header p#home-quote{
-  position: relative;
-  z-index:2;
-  font-size:2.2rem;
-  max-width:80%;
-  text-align:center;
-  text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
-  line-height:1.4;
-  padding:0 1rem;
-  color:#fff;
-  animation:fadeUp 1.2s ease-out;
+body {
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-/* NAVIGATION */
-nav{
-  position:fixed; top:0; left:0; width:100%; z-index:1000; 
-  background:var(--primary);
-}
-.nav-container{
-  max-width:1100px; margin:auto;
-  display:flex; justify-content:space-between; align-items:center; padding:0.4rem 1rem; position:relative;
-}
-.logo{color:#fff; font-weight:600; font-size:1.2rem;}
-ul{
-  list-style:none; display:flex; gap:1rem;
-}
-ul li a{
-  color:#fff; text-decoration:none; font-weight:600; transition:0.3s;
-}
-ul li a:hover{color:var(--secondary);}
-.hamburger{
-  display:none; flex-direction:column; cursor:pointer; gap:5px; transition:0.3s;
-}
-.hamburger div{
-  width:25px; height:3px; background:#fff; transition:all 0.3s;
-}
-.hamburger.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-.hamburger.active div:nth-child(2){opacity:0;}
-.hamburger.active div:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-@media(max-width:768px){
-  .hamburger{display:flex; order:2;}
-  ul{
-    position:absolute; top:100%; right:0; background:var(--primary); 
-    flex-direction:column; width:200px; display:none; box-shadow:0 8px 15px rgba(0,0,0,0.2);
-  }
-  ul.active{display:flex;}
-  ul li{padding:0.5rem 0;text-align:center;}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #800000;
+    padding: 15px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* SECTIONS */
-main{flex:1;} /* keeps footer at bottom */
-section{
-  min-height:100vh;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  padding:3rem 1rem;
-  position:relative;
-}
-/* Travel/Airplane themed background for sections except home */
-section#about, section#certifications, section#trainings{
-  background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-}
-section#about::after,
-section#certifications::after,
-section#trainings::after{
-  content:""; position:absolute; inset:0; background:rgba(255,255,255,0.85);
-}
-section > *{position:relative; z-index:2;}
-section h2{
-  font-size:2rem;color:var(--primary);margin-bottom:1.5rem;text-align:center;
-  position:relative;
-}
-section h2::after{
-  content:""; display:block; width:50px; height:3px; background:var(--secondary); margin:10px auto 0; border-radius:2px;
+.navbar .brand { font-size: 1.5rem; font-weight: 600; }
+
+.navbar ul { list-style: none; display: flex; gap: 20px; }
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
 }
 
-/* ABOUT ME */
-.about-text{
-  background:#fff; padding:2rem; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.08);
-  max-width:800px; text-align:center;
-}
-.about-text p{margin-bottom:1rem;}
-.about-gallery{
-  display:flex; gap:0.8rem; justify-content:center; margin-top:1.5rem; flex-wrap:wrap;
-}
-.about-gallery img{
-  width:48%; min-width:200px; border-radius:12px;
-  transition:transform 0.3s, box-shadow 0.3s;
-}
-.about-gallery img:hover{transform:scale(1.05); box-shadow:0 4px 15px rgba(0,0,0,0.2);}
-.skills-about{
-  display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-top:1rem;
-}
-.skills-about span{
-  display:inline-block; background:var(--primary); color:#fff;
-  padding:.5rem 1rem; border-radius:30px; margin:.3rem; font-size:0.9rem; transition:0.3s;
-}
-.skills-about span:hover{background:var(--secondary);}
-
-/* CERTIFICATIONS */
-.grid{
-  display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  width:100%; max-width:900px;
-}
-.cert{overflow:hidden; border-radius:12px; transition:transform 0.3s;}
-.cert img{width:100%; display:block;}
-.cert:hover{transform:scale(1.03);}
-
-/* TRAININGS */
-.train{background:#fff; padding:1rem 1.2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); max-width:650px; margin:0.5rem 0; transition:transform 0.3s;}
-.train:hover{transform:translateY(-3px);}
-.train h3{font-size:1rem;margin-bottom:0.5rem;}
-.train ul{padding-left:1rem;}
-
-/* FOOTER */
-footer{
-  background:var(--primary);
-  color:#fff;
-  text-align:center;
-  padding:2rem 1rem;
-  margin-top:auto;
-}
-footer h2{
-  color:#ffd700;
-  font-family:'Playfair Display', serif;
-  margin-bottom:0.8rem;
-}
-footer .footer-container{
-  max-width:1000px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:0.6rem;
-}
-footer p{margin:0.3rem 0;}
-footer strong{color:#ff9800;}
-footer small{display:block; margin-top:1rem; font-size:0.8rem; color:#ddd;}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+.navbar ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #FFD700;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-  header p#home-quote{font-size:1.5rem;}
-  .skills-about span{font-size:0.75rem;}
-  .about-gallery img{width:48%;}
+.navbar ul li a:hover::after,
+.navbar ul li a.active-link::after { width: 100%; }
+
+/* Hamburger Menu */
+.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.hamburger div { width: 25px; height: 3px; background-color: white; transition: 0.3s; }
+
+@media (max-width: 768px) {
+    .navbar ul {
+        position: absolute;
+        top: 60px;
+        right: -100%;
+        flex-direction: column;
+        background-color: #800000;
+        width: 200px;
+        transition: 0.3s;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .navbar ul.active { right: 10px; }
+    .hamburger { display: flex; }
 }
-@media(max-width:480px){
-  header p#home-quote{font-size:1.2rem; line-height:1.5;}
-  .about-gallery img{width:100%;}
+
+/* Sections */
+section {
+    padding: 120px 20px 60px 20px;
+    min-height: calc(100vh - 60px);
+    display: none;  /* hidden by default */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
+
+section.active {
+    display: block;
+    opacity: 1;
+}
+
+section h1 { 
+    font-size: 2rem; 
+    margin-bottom: 30px; 
+    color: #800000; 
+    text-align: center; 
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+}
+
+.mySlides { display: none; }
+
+.mySlides img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+/* Dots */
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+.active-dot, .dot:hover { background-color: #800000; }
+
+
+.card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+footer { text-align: center; padding: 20px; background-color: #800000; color: white; }
+
+/* Home Section */
+#home {
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    height: 100vh; /* ✅ fills the viewport */
+}
+
+#home img.bg-image { position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: -2; }
+#home .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); z-index: -1; }
+#home .home-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+
+    /* ✅ Centering fix */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center; /* instead of justify */
+}
+#home h1 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+#home h1 { font-size: 1.8rem; line-height: 1.3; font-weight: 600; }
+
+/* Resume Images */
+.resume-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.resume-images img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+#about {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #800000;
+}
+
+#about p {
+    max-width: 900px;
+    margin: 0 auto 15px auto;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Photos layout */
+.about-photos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+.about-photos img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.about-photos img:hover {
+    transform: scale(1.05);
+}
+
+/* Skills and Highlights */
+.skills-title {
+    font-size: 1.5rem;
+    margin: 30px 0 20px;
+    color: #800000;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+.skill-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #800000;
+}
+.skill-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
 </style>
 </head>
 <body>
 
-<!-- HOME -->
-<header id="home">
-  <img src="image9.jpg" class="bg-img" alt="Travel Background">
-  <p id="home-quote">“The journey of a thousand miles begins with one step”</p>
-</header>
-
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-container">
-    <div class="logo">Ryza Mae D. Martinez</div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
-    </div>
+<nav class="navbar">
+    <div class="brand">Ryza Mae D. Martinez</div>
     <ul id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#trainings">Trainings</a></li>
+        <li><a href="#" data-section="home" class="active-link">Home</a></li>
+        <li><a href="#" data-section="education">Educational Attainment</a></li>
+        <li><a href="#" data-section="practicum">Practicum</a></li>
+        <li><a href="#" data-section="certification">Certification & Courses</a></li>
+        <li><a href="#" data-section="training">Training & Seminars</a></li>
+        <li><a href="#" data-section="resume">Resume</a></li>
+        <li><a href="#" data-section="about">About Me</a></li>
     </ul>
-  </div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
 </nav>
 
-<main>
-<!-- ABOUT ME -->
+<section id="home" class="active">
+    <img src="myBackground.jpg" class="bg-image" alt="Background Image">
+    <div class="overlay"></div>
+    <div class="home-content">
+        <h1>"The journey of a thousand miles begins with one step"</h1>
+    </div>
+</section>
+<section id="education">
+    <h1>Educational Attainment</h1>
+    <div class="card">
+        <h2>Student Life</h2>
+        <p><strong>School:</strong> Our Lady Of Fatima University - Antipolo Campus</p>
+        <p><strong>Address:</strong> Blk 63, Lot 24, Phase 2A, Mabuhay Homes, Binangonan, Rizal</p>
+        <p><strong>Course:</strong> Bachelor of Science in International Tourism Management Major in Travel and Tour Operations</p>
+        <p><strong>Academic Year:</strong> August 2023 - Present</p>
+    </div>
+
+    <div class="card">
+        <h2>TOURS</h2>
+        <h3>Seda Manila Bay</h3>
+        <img src="mae.jpg" alt="Seda Manila Bay" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;">
+
+        <h3>Puerto Princesa, Palawan</h3>
+        <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center;">
+            <img src="mae1.jpg" alt="Puerto Princesa Photo 1" style="width:48%; border-radius:10px;">
+            <img src="mae2.jpg" alt="Puerto Princesa Photo 2" style="width:48%; border-radius:10px;">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 style="text-align:center; margin-bottom:15px;">
+            "Every moment we shared in this university is a memory I'll cherish forever."
+        </h2>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- 13 slides -->
+            <div class="mySlides2"><img src="mae3.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae4.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae5.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae6.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae7.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae8.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae9.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae10.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae11.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae12.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae13.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides2"><img src="mae14.jpg" style="width:100%; border-radius:10px;"></div>
+            
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots -->
+        <div style="text-align:center; margin-top:10px;">
+            <span class="dot2" onclick="currentSlide2(1)"></span>
+            <span class="dot2" onclick="currentSlide2(2)"></span>
+            <span class="dot2" onclick="currentSlide2(3)"></span>
+            <span class="dot2" onclick="currentSlide2(4)"></span>
+            <span class="dot2" onclick="currentSlide2(5)"></span>
+            <span class="dot2" onclick="currentSlide2(6)"></span>
+            <span class="dot2" onclick="currentSlide2(7)"></span>
+            <span class="dot2" onclick="currentSlide2(8)"></span>
+            <span class="dot2" onclick="currentSlide2(9)"></span>
+            <span class="dot2" onclick="currentSlide2(10)"></span>
+            <span class="dot2" onclick="currentSlide2(11)"></span>
+            <span class="dot2" onclick="currentSlide2(12)"></span>
+            
+        </div>
+    </div>
+</section>
+
+
+<section id="practicum">
+    <h1>Practicum 1</h1>
+    <div class="card">
+        <h2>CARGO AGENT</h2>
+        <p><strong>Address:</strong> PAIR-PAGSS Center, Ninoy Aquino International Airport, Pasay City, Metro Manila, NCR, 1300</p>
+        <p><strong>Company:</strong> PAIR-PAGSS Center</p>
+        <p><strong>Date:</strong> July 17 - August 16, 2025</p>
+        <p>
+            During my intern at PAGSS/SALCI, at cargo department, I was deployed at Eva Air.  
+            I was assigned to help in the cargo acceptance.  
+            I helped in weighing the cargo and I was able to compute the length × width × height to get the actual volume.  
+            They also ordered me to give papers to the x-ray area and recycle papers.
+        </p>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- Slides -->
+            <div class="mySlides fade">
+                <img src="practicum1.jpg" style="width:100%; border-radius:10px;">
+            </div>
+            <div class="mySlides fade">
+                <img src="practicum2.jpg" style="width:100%; border-radius:10px;">
+            </div>
+            <div class="mySlides fade">
+                <img src="practicum3.jpg" style="width:100%; border-radius:10px;">
+            </div>
+            <div class="mySlides fade">
+                <img src="practicum4.jpg" style="width:100%; border-radius:10px;">
+            </div>
+            <div class="mySlides fade">
+                <img src="practicum5.jpg" style="width:100%; border-radius:10px;">
+            </div>
+            <div class="mySlides fade">
+                <img src="practicum.jpg" style="width:100%; border-radius:10px;">
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots -->
+        <div style="text-align:center; margin-top:10px;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </div>
+</section>
+
+
+<section id="certification">
+    <h1>Certification & International Courses</h1>
+    <div class="card">
+        <h2>Eversity Online Campus</h2>
+        <p>Australian Work Health and Safety Procedures</p>
+        <img src="pic.jpg" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;">
+        <p>Manage Australian Finances Within a Budget</p>
+        <img src="pic1.jpg" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;">
+    </div>
+    <div class="card">
+        <h2>American Hospitality Academy</h2>
+        <p>Introduction to Hospitality and Tourism</p>
+        <img src="pic2.jpg" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;">
+        <p>Business Communication in the Hospitality and Tourism Industry</p>
+        <img src="pic3.jpg" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;">
+        <p>Hospitality Professional Certificate</p>
+        <img src="pic4.jpg" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;">
+    </div>
+</section>
+<section id="training">
+    <h1>Training and Seminars</h1>
+
+    <!-- Trainings -->
+    <div class="card">
+        <h2>PTC Aviation Training Center</h2>
+        <p><em>Practical training for aviation skills and knowledge</em></p>
+
+        <!-- Slideshow container for Trainings -->
+        <div class="slideshow-container">
+
+            <div class="mySlides3"><img src="p1.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides3"><img src="p2.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides3"><img src="p3.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides3"><img src="p4.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides3"><img src="p5.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides3"><img src="p6.jpg" style="width:100%; border-radius:10px;"></div>
+            
+
+            <!-- Buttons -->
+            <a class="prev" onclick="plusSlides3(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides3(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots -->
+        <div style="text-align:center; margin-top:10px;">
+            <span class="dot3" onclick="currentSlide3(1)"></span>
+            <span class="dot3" onclick="currentSlide3(2)"></span>
+            <span class="dot3" onclick="currentSlide3(3)"></span>
+            <span class="dot3" onclick="currentSlide3(4)"></span>
+            <span class="dot3" onclick="currentSlide3(5)"></span>
+            <span class="dot3" onclick="currentSlide3(6)"></span>
+            
+        </div>
+    </div>
+
+    <!-- Seminars -->
+    <div class="card">
+        <h2>Seminars Attended</h2>
+        <p><em>Enhancing knowledge and skills through professional seminars</em></p>
+
+        <!-- Slideshow container for Seminars -->
+        <div class="slideshow-container">
+
+            <div class="mySlides4"><img src="image4.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides4"><img src="image5.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides4"><img src="image6.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides4"><img src="image7.jpg" style="width:100%; border-radius:10px;"></div>
+            <div class="mySlides4"><img src="image8.jpg" style="width:100%; border-radius:10px;"></div>
+
+            <!-- Buttons -->
+            <a class="prev" onclick="plusSlides4(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides4(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots -->
+        <div style="text-align:center; margin-top:10px;">
+            <span class="dot4" onclick="currentSlide4(1)"></span>
+            <span class="dot4" onclick="currentSlide4(2)"></span>
+            <span class="dot4" onclick="currentSlide4(3)"></span>
+            <span class="dot4" onclick="currentSlide4(4)"></span>
+            <span class="dot4" onclick="currentSlide4(5)"></span>
+        </div>
+    </div>
+</section>
+
+
+<section id="resume">
+    <h1>Resume</h1>
+    <div class="card">
+        <p>View my resume here.</p>
+        <div class="resume-images">
+            <img src="resume.jpg" alt="Resume ">
+            <img src="resume1.jpg" alt="Resume 1">
+        </div>
+    </div>
+</section>
+
+<!-- About Me Section -->
 <section id="about">
-  <h2>About Me</h2>
-  <div class="about-text">
-    <p>Hi! I’m <strong>Ryza Mae D. Martinez</strong>, a 20-year-old student taking a Bachelor of Science in International Tourism Management Major in Travel and Tour Operations at Our Lady Of Fatima University – Antipolo Campus.</p>
-    <p>I am shy, but if I get comfortable, I show my true personality; friendly, jolly, soft-hearted, and loving. I’m beyond grateful for my family and life.</p>
-    <p>My hobbies include watching, reading romance books, and listening to music. I love exploring new places and learning about different cultures. My goal is to gain experiences that will prepare me for a successful career in tourism.</p>
-    
-    <div class="about-gallery">
-      <img src="image1.jpg" alt="Travel 1">
-      <img src="image2.jpg" alt="Travel 2">
-      <img src="image3.jpg" alt="Travel 3">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+            Hi! I’m <strong>Ryza Mae D. Martinez</strong>, a 20 year old student taking a 
+            Bachelor of Science in International Tourism Management Major in Travel and Tour Operations 
+            at Our Lady Of Fatima University – Antipolo Campus.
+        </p>
+        <p>
+            If I would describe my personality, I am a shy person, but if I get comfortable with you, 
+            I would show my true personality; being friendly, jolly, soft hearted, and loving. 
+            And if you ask me to describe my life, I would say I’m beyond grateful for my life, 
+            especially for my family. I am the eldest daughter in my family. 
+            My parents support me in every decision I made in life, that’s why I got to choose my dream course in college. 
+            So if I get to finish college and get my dream job, I would repay them as much as I can. 
+            For my hobbies, I like watching, reading romance books, and listening to music while doing something.
+        </p>
+        <p>
+            I’m a student who loves exploring new places and learning about different cultures. 
+            I enjoy meeting new people, sharing experiences, and discovering what makes each destination unique. 
+            I’m friendly, adaptable, and love working with others, which makes me excited to be part of the 
+            tourism and hospitality industry. My goal is to gain more experiences that will help me grow 
+            and prepare for a successful career in tourism.
+        </p>
+
+        <!-- 3 Photos -->
+        <div class="about-photos">
+            <img src="image1.jpg" alt="Ryza Photo 1">
+            <img src="image2.jpg" alt="Ryza Photo 2">
+            <img src="image3.jpg" alt="Ryza Photo 3">
+        </div>
+
+        <!-- Skills and Highlights -->
+        <h3 class="skills-title">Skills and Highlights</h3>
+        <div class="skills">
+            <div class="skill-card">
+                <h4>⏱️ Time Management</h4>
+                <p>Ability to manage time efficiently and balance multiple responsibilities effectively.</p>
+            </div>
+            <div class="skill-card">
+                <h4>😊 Positive Attitude</h4>
+                <p>Brings optimism and enthusiasm in every task, motivating others and creating a welcoming atmosphere.</p>
+            </div>
+            <div class="skill-card">
+                <h4>🧘 Calm Under Pressure</h4>
+                <p>Maintains composure and makes sound decisions during challenging or emergency situations.</p>
+            </div>
+        </div>
     </div>
-    
-    <h3 style="margin-top:1.5rem;color:var(--primary);">Skills & Highlights</h3>
-    <div class="skills-about">
-      <span>Time Management</span>
-      <span>Positive Attitude</span>
-      <span>Ability to remain calm in emergencies</span>
-    </div>
-  </div>
 </section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <h2>Certifications & International Courses</h2>
-  <div class="grid">
-    <div class="cert"><img src="image4.jpg" alt="Certificate 1"></div>
-    <div class="cert"><img src="image5.jpg" alt="Certificate 2"></div>
-    <div class="cert"><img src="image6.jpg" alt="Certificate 3"></div>
-    <div class="cert"><img src="image7.jpg" alt="Certificate 4"></div>
-    <div class="cert"><img src="image8.jpg" alt="Certificate 5"></div>
-  </div>
-</section>
-
-<!-- TRAININGS -->
-<section id="trainings">
-  <h2>Trainings & Seminars</h2>
-  <div class="train">
-    <h3>Flight Attendant Training at PTC Aviation Training Center<br>
-      - Performed in-flight safety demonstration in a cabin mock-up<br>
-      - Experienced sliding in an emergency slide<br>
-      - Got an overview on the role of a cabin crew<br>
-    
-    </h3>
-    
-  </div>
-  <div class="train">
-    <h3>Work Immersion at Bureau of Fire Protection<br>
-    
-      - Practiced first aid bandaging and CPR<br>
-      - Assisted in mock rescue operations<br>
-      - Observed and participated in emergency response coordination<br>
-      - Learned teamwork and effective communication during emergencies<br>
-      - Observed fire safety drills and evacuation procedures<br>
-      - Learned to assess the condition of injured persons<br>
-      - Operated firefighting equipment and maintained emergency tools<br>
-      - Observed fire safety inspections and regulations<br>
-    </h3>
-  </div>
-  <div class="train">
-    <h3>On-The-Job Training at Philippines Airport Ground Support Inc. and Sky Aviation Learning Center, Inc.<br>
-    
-      - Did Cargo training<br>
-      - Helped in receiving cargo<br>
-    </h3>
-  </div>
-</section>
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <h2>Social Media Accounts</h2>
-  <div class="footer-container">
-    <p><strong>Email:</strong> martinezryzamae13@gmail.com</p>
-    <p><strong>Instagram:</strong> @itszmae</p>
-    <p><strong>Facebook:</strong> Ryza Mae Martinez</p>
-    <small>&copy; 2025 Ryza Mae D. Martinez | All Rights Reserved</small>
-  </div>
+<footer style="background-color: #800000; color: white; padding: 10px 20px; text-align: center; font-size: 0.85rem;">
+    <strong>Social Media Accounts</strong><br>
+    📧 Email: <a href="mailto:martinezryzamae13@gmail.com" style="color: white; text-decoration: none;">martinezryzamae13@gmail.com</a> | 
+    📸 Instagram: <a href="https://www.instagram.com/itszmae" target="_blank" style="color: white; text-decoration: none;">@itszmae</a> | 
+    📘 Facebook: <a href="https://www.facebook.com/RyzaMaeMartinez" target="_blank" style="color: white; text-decoration: none;">Ryza Mae Martinez</a>
+    <br>&copy; 2025 Ryza Mae D. Martinez
 </footer>
 
+
+
+
 <script>
-function toggleMenu(){
-  document.getElementById('nav-links').classList.toggle('active');
-  document.querySelector('.hamburger').classList.toggle('active');
+  // Slideshow
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) { showSlides(slideIndex += n); }
+function currentSlide(n) { showSlides(slideIndex = n); }
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active-dot";
 }
+// Slideshow 2 (Educational Attainment memories)
+let slideIndex2 = 1;
+showSlides2(slideIndex2);
+
+function plusSlides2(n) { showSlides2(slideIndex2 += n); }
+function currentSlide2(n) { showSlides2(slideIndex2 = n); }
+
+function showSlides2(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides2");
+    let dots = document.getElementsByClassName("dot2");
+    if (n > slides.length) { slideIndex2 = 1 }
+    if (n < 1) { slideIndex2 = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+    }
+    slides[slideIndex2-1].style.display = "block";  
+    dots[slideIndex2-1].className += " active-dot";
+}
+// Slideshow 3 (Trainings - PTC Aviation)
+let slideIndex3 = 1;
+showSlides3(slideIndex3);
+
+function plusSlides3(n) { showSlides3(slideIndex3 += n); }
+function currentSlide3(n) { showSlides3(slideIndex3 = n); }
+
+function showSlides3(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides3");
+    let dots = document.getElementsByClassName("dot3");
+    if (n > slides.length) { slideIndex3 = 1 }
+    if (n < 1) { slideIndex3 = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+    }
+    slides[slideIndex3-1].style.display = "block";  
+    dots[slideIndex3-1].className += " active-dot";
+}
+
+// Slideshow 4 (Seminars)
+let slideIndex4 = 1;
+showSlides4(slideIndex4);
+
+function plusSlides4(n) { showSlides4(slideIndex4 += n); }
+function currentSlide4(n) { showSlides4(slideIndex4 = n); }
+
+function showSlides4(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides4");
+    let dots = document.getElementsByClassName("dot4");
+    if (n > slides.length) { slideIndex4 = 1 }
+    if (n < 1) { slideIndex4 = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+    }
+    slides[slideIndex4-1].style.display = "block";  
+    dots[slideIndex4-1].className += " active-dot";
+}
+
+
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+const links = document.querySelectorAll('ul#nav-links li a');
+const sections = document.querySelectorAll('section');
+
+links.forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-section');
+
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(targetId).classList.add('active');
+
+        links.forEach(l => l.classList.remove('active-link'));
+        link.classList.add('active-link');
+
+        navLinks.classList.remove('active');
+    });
+});
+
+window.addEventListener('load', () => {
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById('home').classList.add('active');
+});
 </script>
 </body>
 </html>
