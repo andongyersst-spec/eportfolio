@@ -321,6 +321,25 @@ footer { text-align: center; padding: 20px; background-color: #800000; color: wh
     <div class="overlay"></div>
     <div class="home-content">
         <h1>"The journey of a thousand miles begins with one step"</h1>
+        <!-- Clickable Image with Hover Effect -->
+<a href="https://andongyersst-spec.github.io/eportfolio/" target="_blank" class="clickable-photo">
+    <img src="thumbnail.jpg" alt="My Website">
+</a>
+
+<style>
+.clickable-photo img {
+    width: 250px;               /* size of the image */
+    border-radius: 10px;        /* rounded corners */
+    cursor: pointer;            /* cursor shows hand */
+    transition: transform 0.3s, box-shadow 0.3s; /* smooth hover animation */
+}
+
+.clickable-photo img:hover {
+    transform: scale(1.05);     /* slightly enlarge */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* shadow effect */
+}
+</style>
+
     </div>
 </section>
 <section id="education">
@@ -732,3 +751,4 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
+
